@@ -105,13 +105,12 @@ function renderLogin() {
   <div class="login-screen">
     <div class="login-card">
       <div class="login-logo-lockup">
-        <div style="display:flex;align-items:center;gap:9px;">
-          <div style="width:38px;height:38px;border-radius:10px;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;">${icon("sun", 22)}</div>
-          <div style="text-align:left;">
-            <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:17px;line-height:1.1;">OkapiGreen Tracker</div>
-            <div style="font-size:11px;color:var(--grey);letter-spacing:.03em;">powered by pamba · paNhari</div>
-          </div>
+        <div class="login-logo-row">
+          <img src="assets/okapigreen-logo.jpg" alt="OkapiGreen" class="login-okapi-logo" />
+          <div class="login-logo-divider"></div>
+          <img src="assets/panhari-logo.png" alt="paNhari" class="login-panhari-logo" />
         </div>
+        <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;margin-top:16px;">OkapiGreen Tracker</div>
         <div class="login-title">Sign in to manage trainee &amp; alumni employment outcomes</div>
       </div>
       <div class="login-error" id="login-error">Invalid email or password. Try any email + password — this is a prototype.</div>
@@ -149,14 +148,17 @@ function renderSidebar() {
   return `
   <nav class="sidebar">
     <div class="sidebar-logo">
-      <div style="width:32px;height:32px;border-radius:8px;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;">${icon("sun", 18)}</div>
+      <div class="sidebar-logo-badge"><img src="assets/okapigreen-logo.jpg" alt="OkapiGreen" /></div>
       <div>
-        <div class="brand-name">OkapiGreen<br/>Tracker</div>
+        <div class="brand-name">Tracker</div>
         <div class="brand-sub">by paNhari · pamba</div>
       </div>
     </div>
     <ul class="nav-list">${items}</ul>
-    <div class="sidebar-footer">OkapiGreen Solar Training<br/>Kakuma Refugee Camp, Kenya</div>
+    <div class="sidebar-footer">
+      <img src="assets/panhari-logo.png" alt="paNhari" class="sidebar-panhari-logo" />
+      <div class="sidebar-footer-text">OkapiGreen Solar Training<br/>Kakuma Refugee Camp, Kenya</div>
+    </div>
   </nav>`;
 }
 

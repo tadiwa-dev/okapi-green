@@ -99,6 +99,10 @@ button { font-family: inherit; }
   padding: 40px 36px 32px;
 }
 .login-logo-lockup { display: flex; flex-direction: column; align-items: center; margin-bottom: 28px; }
+.login-logo-row { display: flex; align-items: center; gap: 16px; }
+.login-okapi-logo { height: 64px; width: auto; object-fit: contain; }
+.login-panhari-logo { height: 40px; width: auto; object-fit: contain; }
+.login-logo-divider { width: 1px; height: 40px; background: var(--grey-light); }
 .login-title { font-size: 15px; color: var(--grey); margin-top: 14px; text-align: center; }
 .field { margin-bottom: 18px; }
 .field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--charcoal); }
@@ -135,7 +139,9 @@ button { font-family: inherit; }
   padding: 22px 14px;
 }
 .sidebar-logo { display: flex; align-items: center; gap: 10px; padding: 0 10px 22px; }
-.sidebar-logo .brand-name { font-family: "Manrope", sans-serif; font-weight: 800; font-size: 16px; line-height: 1.15; color: var(--white); }
+.sidebar-logo-badge { background: var(--white); border-radius: 8px; padding: 4px 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.sidebar-logo-badge img { width: 34px; height: auto; display: block; }
+.sidebar-logo .brand-name { font-family: "Manrope", sans-serif; font-weight: 800; font-size: 17px; line-height: 1.15; color: var(--white); }
 .sidebar-logo .brand-sub { font-size: 10.5px; color: #b9b9bb; letter-spacing: 0.02em; }
 .nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; flex: 1; }
 .nav-item {
@@ -154,7 +160,9 @@ button { font-family: inherit; }
 .nav-item:hover { background: #333333; color: var(--white); }
 .nav-item.active { background: var(--red); color: var(--white); }
 .nav-item.active svg { opacity: 1; }
-.sidebar-footer { padding: 12px 10px 0; font-size: 11px; color: #8b8b8d; border-top: 1px solid #3a3a3a; margin-top: 14px; }
+.sidebar-footer { padding: 14px 10px 0; border-top: 1px solid #3a3a3a; margin-top: 14px; }
+.sidebar-panhari-logo { height: 26px; width: auto; object-fit: contain; background: var(--white); border-radius: 6px; padding: 4px 8px; margin-bottom: 10px; display: block; }
+.sidebar-footer-text { font-size: 11px; color: #8b8b8d; line-height: 1.4; }
 
 .main-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 
