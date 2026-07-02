@@ -34,6 +34,20 @@ function icon(name, size = 18) {
   return `<svg ${s}>${paths[name] || ""}</svg>`;
 }
 
+/* Multi-color brand marks for federated login buttons */
+function brandIcon(name) {
+  if (name === "google") {
+    return `<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.81.54-1.85.86-3.04.86-2.34 0-4.32-1.58-5.03-3.71H.98v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.97 10.71a5.4 5.4 0 0 1 0-3.42V4.96H.98a9 9 0 0 0 0 8.08l2.99-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58C13.47.89 11.43 0 9 0A9 9 0 0 0 .98 4.96l2.99 2.33C4.68 5.16 6.66 3.58 9 3.58z"/></svg>`;
+  }
+  if (name === "microsoft") {
+    return `<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="8.5" height="8.5" fill="#F25022"/><rect x="9.5" y="0" width="8.5" height="8.5" fill="#7FBA00"/><rect x="0" y="9.5" width="8.5" height="8.5" fill="#00A4EF"/><rect x="9.5" y="9.5" width="8.5" height="8.5" fill="#FFB900"/></svg>`;
+  }
+  if (name === "linkedin") {
+    return `<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="18" rx="3.5" fill="#0A66C2"/><path fill="#fff" d="M5.15 7.2h1.85v6.1H5.15V7.2zm.93-3a1.07 1.07 0 1 1 0 2.14 1.07 1.07 0 0 1 0-2.14zM8.35 7.2h1.77v.83h.03c.25-.46.85-.95 1.75-.95 1.87 0 2.22 1.2 2.22 2.77v3.45h-1.85v-3.06c0-.73-.01-1.67-1.02-1.67-1.02 0-1.18.79-1.18 1.61v3.12H8.35V7.2z"/></svg>`;
+  }
+  return "";
+}
+
 /* ---------------- State ---------------- */
 const state = {
   screen: "login",
@@ -113,6 +127,12 @@ function renderLogin() {
         <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;margin-top:16px;">OkapiGreen Tracker</div>
         <div class="login-title">Sign in to manage trainee &amp; alumni employment outcomes</div>
       </div>
+      <div class="oauth-buttons">
+        <button type="button" class="btn btn-social" onclick="handleFederatedLogin('LinkedIn')">${brandIcon("linkedin")} Continue with LinkedIn</button>
+        <button type="button" class="btn btn-social" onclick="handleFederatedLogin('Microsoft')">${brandIcon("microsoft")} Continue with Microsoft</button>
+        <button type="button" class="btn btn-social" onclick="handleFederatedLogin('Google')">${brandIcon("google")} Continue with Google</button>
+      </div>
+      <div class="login-divider"><span>or sign in with email</span></div>
       <div class="login-error" id="login-error">Invalid email or password. Try any email + password — this is a prototype.</div>
       <form onsubmit="handleLogin(event)">
         <div class="field">
@@ -133,6 +153,11 @@ function handleLogin(e) {
   e.preventDefault();
   state.screen = "dashboard";
   render();
+}
+function handleFederatedLogin(provider) {
+  state.screen = "dashboard";
+  render();
+  showToast(`Signed in with ${provider} (demo)`);
 }
 function handleLogout() {
   state.screen = "login";

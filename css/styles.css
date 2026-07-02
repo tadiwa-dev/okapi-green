@@ -122,6 +122,11 @@ button { font-family: inherit; }
   box-shadow: 0 0 0 3px var(--red-tint);
 }
 .field-hint { font-size: 12px; color: var(--grey); margin-top: 4px; }
+.oauth-buttons { display: flex; flex-direction: column; gap: 10px; }
+.btn-social { width: 100%; justify-content: center; background: var(--white); border: 1px solid var(--grey-light); color: var(--charcoal); padding: 10px 14px; }
+.btn-social:hover { background: var(--grey-bg); border-color: var(--grey); }
+.login-divider { display: flex; align-items: center; gap: 12px; color: var(--grey); font-size: 12px; margin: 20px 0 18px; }
+.login-divider::before, .login-divider::after { content: ""; flex: 1; height: 1px; background: var(--grey-light); }
 .login-card .btn-primary { width: 100%; justify-content: center; padding: 12px; font-size: 15px; margin-top: 6px; }
 .login-footnote { text-align: center; font-size: 12px; color: var(--grey); margin-top: 20px; }
 .login-error { background: var(--red-tint); color: var(--red-dark); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 13px; margin-bottom: 16px; display: none; }
